@@ -15,16 +15,16 @@ if(isset($_POST['cari'])){
 
 // jika tombol tambah di tekan
 if(isset($_POST['tambah'])) {
-    $kode = htmlspecialchars($_POST['kode']);
+    $jenis_hewan = htmlspecialchars($_POST['kode']);
     $namaProduk = htmlspecialchars($_POST['nama_produk']);
     $hargaSatuan = htmlspecialchars($_POST['harga_satuan']);
     $jumlah = htmlspecialchars($_POST['jumlah']);
 
-    if(empty($kode && $namaProduk && $hargaSatuan && $jumlah)) {
+    if(empty($jenis_hewan && $namaProduk && $hargaSatuan && $jumlah)) {
         echo "<script>alert('Isi semua inputan');window.location='?p=produk';</script>";
     }
 
-    $sql = $conn->query("INSERT INTO produk VALUES (null, '$namaProduk', '$hargaSatuan', '$jumlah', '$kode')") or die(mysqli_error($conn));
+    $sql = $conn->query("INSERT INTO produk VALUES (null, '$namaProduk', '$hargaSatuan', '$jumlah', '$jenis_hewan')") or die(mysqli_error($conn));
     if($sql) {
         echo "<script>alert('Data Berhasil Ditambahkan');window.location='?p=produk';</script>";
     } else {
@@ -33,8 +33,8 @@ if(isset($_POST['tambah'])) {
 }
 
 // acak kode
-$kode = $conn->query("SELECT max(kode) as kodeTerbesar FROM tb_kas") or die(mysqli_error($conn));
-$pecahKode = $kode->fetch_assoc();
+$jenis_hewan = $conn->query("SELECT max(kode) as kodeTerbesar FROM tb_kas") or die(mysqli_error($conn));
+$pecahKode = $jenis_hewan->fetch_assoc();
 $kodeId = $pecahKode['kodeTerbesar'];
 // var_dump($pecahKode);
 
@@ -54,7 +54,7 @@ if($format === $kodeId) {
 // ------UBAH-----------
 if(isset($_POST['ubah'])) {
     $id_edit = htmlspecialchars($_POST['id_edit']);
-    $kode_edit = htmlspecialchars($_POST['kode_edit']);
+    $jenis_edit = htmlspecialchars($_POST['jenis_edit']);
     $nama_produk_edit = htmlspecialchars($_POST['nama_produk_edit']);
     $harga_satuan_edit = htmlspecialchars($_POST['harga_satuan_edit']);
     $jumlah_edit = htmlspecialchars($_POST['jumlah_edit']); 
@@ -146,7 +146,7 @@ if(isset($_POST['ubah'])) {
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>kode</th>
+                        <th>jenis_hewan</th>
                         <th>nama</th>
                         <th>jumlah</th>
                         <th>harga satuan</th>
@@ -159,7 +159,7 @@ if(isset($_POST['ubah'])) {
                 while($data = $tampilProduk->fetch_assoc()) : ?>
 								<tr>
 									<td><?= $no++; ?></td>
-									<td><?= $data['kode']; ?></td>
+									<td><?= $data['jenis_hewan']; ?></td>
 									<td><?= $data['nama']; ?></td>
                                     <td><?= $data['jumlah']; ?></td>
 									<td>Rp.<?= number_format($data['harga_satuan']); ?></td>
@@ -200,8 +200,8 @@ if(isset($_POST['ubah'])) {
                     <form action="" method="post">
                         <input type="text" name="id_edit" id="id_edit">
                         <div class="form-group">
-                            <label for="kode">Kode Produk</label>
-                            <input type="text" class="form-control" name="kode_edit" id="kode_edit" value="" required="" />
+                            <label for="jenis_hewan">jenis hewan</label>
+                            <input type="text" class="form-control" name="jenis_edit" id="jenis_edit" value="" required="" />
                         </div>
                         <div class="form-group">
                             <label for="nama_produk">nama Produk</label>
@@ -232,14 +232,14 @@ if(isset($_POST['ubah'])) {
     $(document).on('click', '#edit_data', function() {
         // data('id,ket,dll') = berasal dari a href (attribute baru).
         const id = $(this).data('id');
-        const kode = $(this).data('kode');
+        const jenis_hewan = $(this).data('jenis_hewan');
         const nama_produk = $(this).data('nama');
         const harga_satuan= $(this).data('harga');
         const jumlah = $(this).data('jumlah');
 
         // form modal edit
         $('#modal_edit #id_edit').val(id);
-        $('#modal_edit #kode_edit').val(kode);
+        $('#modal_edit #jenis_edit').val(jenis_hewan);
         $('#modal_edit #nama_edit').val(nama_produk);
         $('#modal_edit #harga_satuan_edit').val(harga_satuan);
         $('#modal_edit #jumlah_edit').val(jumlah);
