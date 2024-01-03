@@ -81,7 +81,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Kode</th>
+                        <th>jenis_hewan</th>
                         <th>Tanggal</th>
                         <th>Keterangan</th>
                         <th>Jumlah</th>
@@ -93,7 +93,7 @@
                 while($data = $tampilKas->fetch_assoc()) : ?>
 								<tr>
 									<td><?= $no++; ?></td>
-									<td><?= $data['kode']; ?></td>
+									<td><?= $data['jenis_hewan']; ?></td>
 									<td><?= date('d-m-Y', strtotime($data['tgl'])); ?></td>
 									<td><?= $data['keterangan']; ?></td>
 									<td>Rp.<?= number_format($data['jumlah']); ?></td>
