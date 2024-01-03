@@ -48,12 +48,12 @@ if(isset($_POST['login'])) {
 
 ?>
 <!DOCTYPE html>
-<link rel="shortcut icon" href="img/admin1.jpg" type="image/x-icon" />
+<link rel="shortcut icon" href="img/images.jpeg" type="image/x-icon" />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aplikasi Sistem Informasi Akuntansi Penjualan Makanan Hewan di Opet Shop</title>
+    <title>Aplikasi OPET</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -68,10 +68,12 @@ if(isset($_POST['login'])) {
 <body>
         <!-- Navbar -->
         <?php require_once 'themeplates/navbar.php'; ?> 
-        <!-- End Navbar -->  
+        <!-- End Navbar   -->
            <!-- /. NAV TOP  -->
 		   <br>
-<center><h2><b> Selamat Datang Di Sistem Informasi Akuntansi Pengelolaan Kas Realisasi Anggaran<b></h2></center>		  
+<center><h2><b> Selamat Datang Di OPET</h2></center>
+<br><br>
+<center><h2><b> Kualitas segalanya</h2></center>			  
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
@@ -112,8 +114,7 @@ if(isset($_POST['login'])) {
 </div>
                 </div>
                  <!-- /. ROW  -->
-                 <!-- <hr /> -->
-                 
+                 <!-- <hr />      -->
                
     </div>
              <!-- /. PAGE INNER  -->
