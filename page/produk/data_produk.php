@@ -1,4 +1,6 @@
-<h1>halaman produk</h1>
+<h1>Halaman Produk Hewan</h1>
+<h2>Berikut Produk kami </h2>
+
 <?php 
 //ada tombol cari yang di jalankan atau tidak
 if(isset($_POST['cari'])){
@@ -68,7 +70,7 @@ if(isset($_POST['ubah'])) {
 }
 
 ?>
-<h2>Halaman Produk</h2>
+<h3>Halaman Produk</h3>
 <hr>
 <!--  Modals-->                  
 <div class="panel-body">
